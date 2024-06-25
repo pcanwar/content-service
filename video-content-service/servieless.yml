@@ -1,0 +1,52 @@
+service: video-content-service
+
+provider:
+  name: aws
+  runtime: nodejs20
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:us-east-1:*:table/YourTableName"
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+        - s3:GetObject
+        - s3:DeleteObject
+        - s3:ListBucket
+      Resource:
+        - "arn:aws:s3:::YourBucketName/*"
+functions:
+  getLesson:
+    handler: src/handlers/getLesson.handler
+    events:
+      - http:
+          path: lessons/{courseId}/{lessonId}
+          method: get
+          cors: true
+
+  # Example function triggered by S3 upload
+  lessonVideoUploaded:
+    handler: src/handlers/lessonVideoUploaded.handler
+    events:
+      - s3:
+          bucket: YourBucketName
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: uploads/
+            - suffix: .mp4
+
+  # Define other functions here
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3000
