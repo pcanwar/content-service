@@ -1,0 +1,87 @@
+.hero {
+    background-image: url('/path/to/your/hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 5em 1em;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+.hero p {
+    font-size: 1.5em;
+}
+
+/* Course highlights section */
+.course-highlights {
+    padding: 3em 1em;
+    text-align: center;
+}
+
+.course-highlights h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.course-highlights .courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.course-highlights .course {
+    background-color: #f4f4f4;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.course-highlights .course h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.course-highlights .course p {
+    margin-bottom: 1em;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+.footer p {
+    margin-bottom: 0.5em;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5em;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Design */
+@media (max-width: 768px) {
+    .course-highlights .courses {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .course-highlights .course {
+        width: 100%;
+        max-width: 400px;
+    }
+}

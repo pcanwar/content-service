@@ -1,0 +1,29 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: #333; /*  background color */
+  color: #fff; /*  text color */
+}
+
+.logoContainer {
+  position: relative;
+  width: 180px;
+  height: 120px;
+  cursor: pointer;
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.nav a {
+  color: #fff; /* the link color */
+  text-decoration: none;
+  margin-left: 1em;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
